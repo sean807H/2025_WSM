@@ -39,4 +39,4 @@ function Cart({ cartItems, updateQuantity, removeFromCart, clearCart }) {
             )
         </div>
     )
-}
+} export default Cart;
