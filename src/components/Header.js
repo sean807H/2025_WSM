@@ -1,26 +1,25 @@
-import react from "react";
-import {Link} from "react-router-dom"
+import React from "react"
+import { Link } from "react-router-dom"
 import SearchBar from './SearchBar'
 
-function Header({cartItemCount, onSearch}){
+function Hearder({cartItemCount, onSearch}) {
     return(
-        <Header>
+        <hearder>
             <div className="logo">
                 <Link to="/">
                     <h1>리액트 쇼핑몰</h1>
                 </Link>
-
-                <nav>
-                    <li><Link to="/">홈</Link></li>
-                    <li><Link to="/category/의류">의류</Link></li>
-                    <li><Link to="/category/전자기기">전자기기</Link></li>
-                    <li><Link to="/category/액세서리">액세서리</Link></li>
-                </nav>
             </div>
+            
+            <nav>
+                <li><Link to="/">홈</Link></li>
+                <li><Link to="/category/의류">의류</Link></li>
+                <li><Link to="/category/전자기기">전자기기</Link></li>
+                <li><Link to="/category/액세서리">액세서리</Link></li>
+            </nav>
 
             <div>
-                {/* 검색 호출 콜백 함수 */}
-                <SearchBar onSearch={onSearch}/>
+                <SearchBar onSearch={onSearch} />
 
                 <div>
                     <Link to="/cart">
@@ -32,8 +31,8 @@ function Header({cartItemCount, onSearch}){
                     </Link>
                 </div>
             </div>
-        </Header>
+        </hearder>
     )
 }
 
-export default Header;
+export default Hearder

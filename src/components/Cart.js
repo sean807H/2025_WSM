@@ -1,42 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom"
-import CartItem from "./CartItem";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import CartItem from './CartItem'
 
 function Cart({ cartItems, updateQuantity, removeFromCart, clearCart }) {
-    const calculateTotal = () => {
-        return cartItems.reduce((total, item) => {
-            return total + (item.product.price * item.quantity);
-        }, 0);
+  const calculateTotal = () => {
+    return cartItems.redude((total, item) => {
+      return total+(item.product.price * item.quantity)
+    }, 0)
+  }
 
-        const formatPrice = (price) => {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-        }
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ") + "원"
+  }
 
-        const hadlerCheckout = () => {
-            alert('결제로 넘어갑니다.(구현되지 않음)')
-        }
-    }
-
-    return (
+  const handleCheckout = () => {
+    alert('no code')
+  }
+  
+  return (
+    <div>
+      <h2>cart</h2>
+      {cartItems.length===0}?(
         <div>
-            <h2>장바구니</h2>
-            {/* 삼항연산자 썼음(중요) */}
-            {cartItems.length === 0}?(
-                <div>
-                    <p>장바구니가 비어있습니다!!</p>
-                    <Link to="/">쇼핑계속하기</Link>
-                </div>
-            ):(
-                <>
-                <div>
-                    <span>상품</span>
-                    <span>수량</span>
-                    <span>합계</span>
-                    <span>합계</span>
-                </div>
-                {/* 그룹화 */}
-                </>
-            )
+          <p>no items</p>
+          <Link to='/'>go shopping</Link>
         </div>
-    )
-} export default Cart;
+      ) : (
+        <>
+        <div>
+          <span>product</span>
+          <span>count</span>
+          <span>total</span>
+          <span></span>
+        </div>
+        </>
+      )
+    </div>
+  )
+}
+
+export default Cart

@@ -1,49 +1,53 @@
-import React from "react";
+import React from 'react'
 
-function CartItem(item, updateQuantity, removeFromCart) {
-    const { product, quantity } = item;
-    const handleIncrease = () => {
-        updateQuantity(product.id, quantity + 1)
+function CartItem({ item, updateQuantity, removeFromCart }){
+  const {product, quantity} = item
+
+  const handleIncrease = () => {
+    updateQuantity(product.id, quantity+1)
+  }
+
+  const handleDecrease = () => {
+    if(quantity > 1){
+      updateQuantity(product.id, quantity-1)
     }
-    const handleDecrease = () => {
-        if (quantity > 1) {
-            updateQuantity(product.id, quantity + 1)
-        }
-    }
-    const handleRemove = () => {
-        removeFromCart(product.id)
-    }
-    const formatPrice = (price) => {
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-    }
+  }
 
-    return (
-        <div>
-            <div>
-                <img src={product.imgUrl} alt={product.name} />
-            </div>
+  const handleRemove = () => {
+    removeFromCart(product.id);
+  }
 
-            <div>
-                <h3>{product.name}</h3>
-                <p>{formatPrice(product.price)}</p>
-            </div>
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ") + "원"
+  }
 
-            <div>
-                {/* disabled 는 비활성화 하는 것 */}
-                <button onClick={handleDecrease} disabled={quantity <= 1}>-</button>
-                <span>{quantity}</span>
-                <button onClick={handleIncrease}>+</button>
-            </div>
+  return (
+    <div>
+      <div>
+        <img src={product.imgUrl} alt={product.name}/>
+      </div>
 
-            <div>
-                <p>{formatPrice(product.price * quantity)}</p>
-            </div>
+      <div>
+        <h3>{product.name}</h3>
+        <p>{formatPrice(product.price)}</p>
+      </div>
 
-            <button onClick={handleRemove}>
-                <span>delete</span>
-            </button>
-        </div>
-    )
+      <div>
+        {/* disabled 버튼 비활성화 */}
+        <button onClick={handleDecrease} disabled={quantity <= 1}>-</button>
+          <span>{quantity}</span>
+        <button onClick={handleIncrease}>+</button>
+      </div>
+
+      <div>
+        <p>{formatPrice(product.price * quantity)}</p>
+      </div>
+
+      <button onClick={handleRemove}>
+        <span>X</span>
+      </button>
+    </div>
+  )
 }
 
-export default CartItem;
+export default CartItem

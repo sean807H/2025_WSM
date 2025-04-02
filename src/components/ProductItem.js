@@ -1,23 +1,27 @@
 // 개별 상품을 표시하는 컴포넌트
-function ProductItem({product, addToCart}){
+
+import React from "react";
+import { Link } from "react-router-dom";
+
+function ProductItem({product, addToCart}) {
     const {id, name, price, imageUrl, category} = product;
 
-    const handleAddToCart=()=>{
-        addToCart(product);
-    };  // 현재 상품(product)을 장바구니에 추가
+    // 현재 상품(product)을 장바구니에 추가
+    const handleAddToCart = () => {
+        addToCart(product)
+    }
 
-    const formatPrice=(price)=>{
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")+"원";
-        // 25000 -> 25,000원 (3자리마다 쉼표를 삽입하고 마지막에 원을 붙인다)
-    };
+    const formatPrice = (price) => {
+        // 3자리마다 쉼표를 삽입하고 마지막에 "원"을 붙임(사용자 친화적)
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ") + "원"
+    }
 
     return(
-        <div>
-            <div className="product-image">
-                {/* 백틱(Template Literals)을 사용하여 동적으로 URL을 생성 */}
-                {/*a태그와 달리 <Link>를 이용하면 전체(UI) 페이지 새로고침 없이 빠르게 이동할 수 있음 */}
+        <div className="product-image">
+            <div>
+                {/* 템플릿 리터럴 / a태그와 달리 화면의 UI를 새로고침하기 때문에 더 빠름 */}
                 <Link to={`/product/${id}`}>
-                    <img src={imageUrl} alt={name}/>
+                    <img src={imageUrl} alt={name} />
                 </Link>
             </div>
 
@@ -31,10 +35,13 @@ function ProductItem({product, addToCart}){
 
             <div className="product-actions">
                 <button
-                    onClick={handleAddToCart}>장바구니 추가</button>
+                    onClick={handleAddToCart}
+                >
+                    장바구니 추가
+                </button>
             </div>
         </div>
-    );
+    )
 }
 
-export default ProductItem;
+export default ProductItem
