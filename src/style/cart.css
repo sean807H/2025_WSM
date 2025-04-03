@@ -15,7 +15,7 @@
     font-weight: bold;
     text-align: center;
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /* 개별 상품 아이템 */
@@ -59,7 +59,8 @@
 .cart-item-quantity {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    margin-right: 100px;
 }
 
 .cart-item-quantity button {
@@ -89,6 +90,7 @@
     font-size: 16px;
     font-weight: bold;
     color: #000;
+    margin-right: 20px;
 }
 
 /* 삭제 버튼 */
@@ -99,6 +101,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 /* 하단 총 가격 및 버튼 */
