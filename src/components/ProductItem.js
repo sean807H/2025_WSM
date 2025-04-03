@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import "../style/productitem.css"
 
 function ProductItem({product, addToCart}) {
     const {id, name, price, imageUrl, category} = product;

@@ -24,7 +24,7 @@ function ProductList({products, addToCart, categoryFilter=null, searchTerm=''}){
                     <p>검색 결과가 없습니다!</p>
                 </div>
                 ) : (
-                    <div>
+                    <div className="product-list">
                         {/* map() : 배열의 각 요소를 변환해서 new 배열 반환 */}
                         {filteredProducts.map((product) => (
                             // 디버깅 이해쉬움 유지보수 재사용 협업

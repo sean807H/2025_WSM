@@ -1,32 +1,30 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 
-function SearchBar({onSearch}) {
-    const [searchTerm, SetSearchTerm] = useState("")
+function SearchBar({ onSearch }) {
+    const [searchTerm, setSearchTerm] = useState(""); // ✅ 변수명 수정 (대문자 S → 소문자 s)
 
     const handleChange = (e) => {
-        SetSearchTerm(e.target.value)
-    }
+        setSearchTerm(e.target.value);
+    };
 
     const handleSubmit = (e) => {
-        e.perventDefault()
-        onSearch(searchTerm)
-    }
+        e.preventDefault(); // ✅ (오타 수정: perventDefault → preventDefault)
+        onSearch(searchTerm);
+    };
 
     return (
         <div>
-            <from onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}> {/* ✅ (오타 수정: from → form) */}
                 <input
                     type="text"
                     placeholder="상품 검색!"
                     value={searchTerm}
-                    onChange={handleChange} 
+                    onChange={handleChange}
                 />
-                <button type="submit">
-                    <span>검색</span>
-                </button>
-            </from>
+                <button type="submit">검색</button>
+            </form>
         </div>
-    )
+    );
 }
 
-export default SearchBar
+export default SearchBar;

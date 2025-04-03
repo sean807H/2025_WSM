@@ -1,0 +1,61 @@
+.home-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;  /* 수정: 헤더 높이만큼 여백 추가 */
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 16px;
+    color: #666;
+}
+
+.product-section {
+    margin-top: 20px;
+}
+
+.product-section h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 5px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 10px;
+    }
+
+    .welcome-section {
+        padding: 30px 15px;
+    }
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+
+    .welcome-section p {
+        font-size: 14px;
+    }
+
+    .product-section h2 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,116 @@
+/* 🔹 상품 목록 (3개씩 가로 정렬) */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 변경 */
+    gap: 30px;
+    padding: 30px;
+    max-width: 100%; /* 변경 */ /* 필요 시 조정 */
+    margin: 0 auto;
+}
+
+/* 🔹 개별 상품 카드 */
+.product-image {
+    width: 300px;
+    height: 470px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* 🔹 상품 카드 가로 정렬 유지 */
+.product-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 상품 이미지 */
+.product-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🔹 마우스 올리면 이미지 살짝 확대 */
+.product-image:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    width: 100%;
+    padding: 10px 15px;
+    background: #fff;
+    min-height: 70px; /* 추가 */
+}
+
+.product-info span {
+    font-size: 13px;
+    color: #888;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.product-info h3 a {
+    text-decoration: none;
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+.product-info h3 a:hover {
+    color: #555;
+}
+
+.product-info p {
+    font-size: 15px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* 🔹 장바구니 버튼 항상 보이게 */
+.product-actions {
+    width: 100%;
+    padding: 10px;
+    background: #f8f8f8;
+    position: absolute;
+    bottom: 10px; /* 변경 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+
+.product-actions button {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product-actions button:hover {
+    background: #555;
+}

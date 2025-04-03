@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -8,6 +8,20 @@ import CartPage from './pages/CartPage';
 import { CartProvider, useCart } from './context/CartContext';
 import products from './data';
 import './App.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+// 카테고리 페이지 컴포넌트 추가
+function CategoryPage({ products, addToCart, searchTerm }) {
+  const { categoryName } = useParams(); // 현재 URL에서 카테고리 이름 가져오기
+
+  return (
+    <HomePage
+      products={products.filter(p => p.category === categoryName)}
+      addToCart={addToCart}
+      searchTerm={searchTerm}
+    />
+  );
+}
 
 // App의 내부 컴포넌트 - CartProvider 내부에서 useCart 훅을 사용하기 위함
 function AppContent() {
@@ -56,13 +70,12 @@ function AppContent() {
             }
           />
 
+          {/* 카테고리별 상품 목록 페이지 */}
           <Route
             path="/category/:categoryName"
             element={
-              <HomePage
-                products={products.filter(p =>
-                  p.category === window.location.pathname.split('/')[2]
-                )}
+              <CategoryPage
+                products={products}
                 addToCart={addToCart}
                 searchTerm={searchTerm}
               />

@@ -1,4 +1,5 @@
 import React from "react"
+import "../style/footer.css";
 
 function Footer() {
   const currentYear = new Date().getFullYear()
@@ -8,7 +9,7 @@ function Footer() {
       <div>
         <div>
           <h3>리액트 쇼핑몰</h3>
-          <p>React로 마든 예제 쇼핑몰입니다.</p>
+          <p>React로 만든 예제 쇼핑몰입니다.</p>
         </div>
         
         <div>
@@ -22,8 +23,8 @@ function Footer() {
 
         <div>
           <h3>고객센터</h3>
-          <p>이메일: dayeont001@e-mirim.hs.kr</p>
-          <p>전화: 010-7514-2703</p>
+          <p>이메일: w2312@e-mirim.hs.kr</p>
+          <p>전화: 010-4664-5231</p>
         </div>
       </div>
 
